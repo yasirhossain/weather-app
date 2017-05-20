@@ -1,0 +1,35 @@
+query getWeather {
+    id
+    name
+    cod
+    coord {
+      long,
+      lat
+    }
+    weather [
+      {
+        id,
+        main,
+        description,
+        icon,
+      }
+    ]
+    main {
+      temp,
+      pressure,
+      humidity,
+      temp_min,
+      temp_max
+    }
+    visibility
+    wind {
+      speed,
+      deg
+    }
+    clouds
+    sys {
+      country,
+      sunrise,
+      sunset
+    }
+}
