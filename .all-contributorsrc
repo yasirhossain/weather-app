@@ -16,6 +16,7 @@
         "code",
         "tool",
         "doc",
+        "test",
         "question",
         "review"
       ]

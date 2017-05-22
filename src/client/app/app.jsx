@@ -23,9 +23,7 @@ export default function App({ children }) {
         {children}
       </Container>
       <Footer>
-        <div className="text-center">
-          &copy; 2016. Example Apollo App.
-        </div>
+        <div className="text-center"></div>
       </Footer>
     </div>
   );
