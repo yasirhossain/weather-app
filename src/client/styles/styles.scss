@@ -8,20 +8,28 @@ $footer-height: 40px;
 html {
   min-height: 100%;
   position: relative;
+  background: -webkit-linear-gradient(to bottom, #3a404e, #201d28);
+  background: linear-gradient(to bottom, #3a404e, #201d28);
 }
 
 body {
   margin-bottom: $footer-height;
   font-family: 'Roboto', sans-serif;
+  background: transparent;
 }
 
 #content {
-  background: #121a2c;
-  padding: 0;
-  margin: 0 auto;
-  position: absolute;
-  height: 100%;
-  width: 100%;
+
+}
+
+.navbar {
+  background: transparent;
+  .navbar-brand {
+    color: #fff;
+  }
+  a, .nav-link {
+    color: #fff;
+  }
 }
 
 .btn, .badge-pill {

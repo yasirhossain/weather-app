@@ -141,8 +141,8 @@ export default class Weather extends React.Component {
     };
 
     const mainCardStyle = {
-      background: `-webkit-linear-gradient(0deg, #2dcdf8, #e57263 ${this.state.currentData.main.temp}%)`,
-      background: `linear-gradient(0deg, #2dcdf8, #e57263 ${this.state.currentData.main.temp}%)`
+      background: `-webkit-linear-gradient(0deg, #43cff3, #e56363 ${this.state.currentData.main.temp}%)`,
+      background: `linear-gradient(0deg, #43cff3, #e56363 ${this.state.currentData.main.temp}%)`
     };
 
     return (
@@ -173,8 +173,8 @@ export default class Weather extends React.Component {
               this.state.forecastData.map(function(day) {
                 let dayString = momentjs.unix(day.dt).format('ddd');
                 let dayCardStyle = {
-                  background: `-webkit-linear-gradient(0deg, 2dcdf8, #e57263 ${day.temp.day}%)`,
-                  background: `linear-gradient(0deg, #2dcdf8, #e57263 ${day.temp.day}%)`
+                  background: `-webkit-linear-gradient(0deg, #43cff3, #e56363 ${day.temp.day}%)`,
+                  background: `linear-gradient(0deg, #43cff3, #e56363 ${day.temp.day}%)`
                 };
                 return (
                   <li key={day.dt} className="card" style={widthStyle}>
