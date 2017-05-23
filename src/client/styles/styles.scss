@@ -1,4 +1,7 @@
+@import './vendor/font-awesome-4.7.0/scss/font-awesome';
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 @import 'bootstrap';
+@import 'weather';
 
 $footer-height: 40px;
 
@@ -9,6 +12,16 @@ html {
 
 body {
   margin-bottom: $footer-height;
+  font-family: 'Roboto', sans-serif;
+}
+
+#content {
+  background: #121a2c;
+  padding: 0;
+  margin: 0 auto;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 .btn, .badge-pill {

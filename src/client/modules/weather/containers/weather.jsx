@@ -57,6 +57,8 @@ export default class Weather extends React.Component {
           reject (new Error('Permission denied'));
         });
       });
+    } else {
+      console.log(`sorry but this didnt work`);
     }
   }
 
@@ -117,7 +119,6 @@ export default class Weather extends React.Component {
           throw new Error(res.data.message);
         } else {
           let forecastData = [];
-          console.log(res.data);
           res.data.list.map((timeData, index) => {
             forecastData.push(timeData);
           });
@@ -135,33 +136,59 @@ export default class Weather extends React.Component {
   }
 
   render() {
-    const widthStyle = `(100 / ${this.state.forecastData.length})%`;
-    console.log(this.state.currentData);
-    console.log(this.state.weatherData);
-    console.log(this.state.forecastData);
-    return (
-      <div className="text-center mt-4 mb-4">
-        <h1>{ this.state.currentData.name }</h1>
+    const widthStyle = {
+      width: `${100 / this.state.forecastData.length}%`
+    };
 
-        <h2>Today's Forecast</h2>
-        <ul className="day list-unstyled">
+    const mainCardStyle = {
+      background: `-webkit-linear-gradient(0deg, #2dcdf8, #e57263 ${this.state.currentData.main.temp}%)`,
+      background: `linear-gradient(0deg, #2dcdf8, #e57263 ${this.state.currentData.main.temp}%)`
+    };
+
+    return (
+      <div className="weather text-center mt-4 mb-4 container">
+        <h1><i className="fa fa-map-marker"></i> { this.state.currentData.name }</h1>
+
+        <h2><i className="fa fa-cloud"></i> Today's Forecast</h2>
+        <ul className="current-day list-unstyled">
           <li className="card">
-            { this.state.currentData.main.temp }
-            Hi { this.state.currentData.main.temp_max }
-            Low { this.state.currentData.main.temp_min }
+            <div className="container" style={mainCardStyle}>
+              <label className="title">{ momentjs.unix(this.state.currentData.dt).format('ddd') }</label>
+              <label className="number">{ Math.round(this.state.currentData.main.temp) }</label>
+              <label>{ this.state.currentData.weather[0].main }</label>
+              <label>
+                <i className="fa fa-chevron-up"></i> { Math.round(this.state.currentData.main.temp_max) }
+              </label>
+              <label>
+                <i className="fa fa-chevron-down"></i> { Math.round(this.state.currentData.main.temp_min) }
+              </label>
+            </div>
           </li>
         </ul>
 
-        <h2>Upcoming Forecast</h2>
-        <div className="forecast">
+        <div className="forecast clearfix">
+          <h2><i className="fa fa-cloud"></i> Upcoming Forecast</h2>
           <ul className="day list-unstyled">
             {
               this.state.forecastData.map(function(day) {
+                let dayString = momentjs.unix(day.dt).format('ddd');
+                let dayCardStyle = {
+                  background: `-webkit-linear-gradient(0deg, 2dcdf8, #e57263 ${day.temp.day}%)`,
+                  background: `linear-gradient(0deg, #2dcdf8, #e57263 ${day.temp.day}%)`
+                };
                 return (
-                  <li key={day.dt} className="card">
-                    { day.temp.day }
-                    Hi { day.temp.max }
-                    Low { day.temp.min }
+                  <li key={day.dt} className="card" style={widthStyle}>
+                    <div className="container" style={dayCardStyle}>
+                      <label className="title">{ dayString }</label>
+                      <label className="number">{ Math.round(day.temp.day) }</label>
+                      <label>{ day.weather[0].main }</label>
+                      <label>
+                        <i className="fa fa-chevron-up"></i> { Math.round(day.temp.max) }
+                      </label>
+                      <label>
+                        <i className="fa fa-chevron-down"></i> { Math.round(day.temp.min) }
+                      </label>
+                    </div>
                   </li>
                 )
               })

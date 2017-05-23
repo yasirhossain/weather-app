@@ -1,0 +1,65 @@
+.weather {
+  $hot: #e57263;
+  $cold: #2dcdf8;
+  color: #fff;
+
+  h1 {
+    font-weight: 100;
+  }
+
+  h2 {
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 24px;
+  }
+
+  .card {
+    padding: .5%;
+    background: transparent;
+    .container {
+      padding: 2%;
+      border-radius: 10px;
+      border: 0 none;
+      background: -webkit-linear-gradient(to bottom, $hot, $cold);
+      background: linear-gradient(to bottom, $hot, $cold);
+      padding: 2%;
+      color: #fff;
+      label {
+        float: left;
+        width: 100%;
+        margin: 0;
+        &.number {
+          font-size: 90px;
+          font-weight: 100;
+          text-shadow: 2px 2px 1px rgba(0,0,0,0.2);
+        }
+      }
+    }
+  }
+
+  .day {
+    .card {
+      float: left;
+      .container {
+        label {
+          &.number {
+            font-size: 45px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    h2 {
+      text-align: center;
+    }
+    .card {
+      width: 100% !important;
+      .container {
+        margin: 0 auto;
+      }
+    }
+  }
+}
