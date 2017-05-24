@@ -10,7 +10,7 @@ Forecast gives a gradient based on how hot / cold the temperature is.
 Font Awesome icon library.
 Responsive for Desktop / iPad Portrait / Mobile
 
-# Thoughts
+# Thought Process
 This is intended to be an MVP. The goal was to make a simple, polished solution that pulls data in concise cards for a user seeking a weather forecast of a given city. I intended to ease the user into the experience further by adding geolocation on start, to make it more frictionless.
 
 # Trade-offs
