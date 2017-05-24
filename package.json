@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-firebase-boilerplate",
+  "name": "weather-app",
   "version": "1.0.0",
-  "description": "Simple boilerplate for Reactjs with Redux and Firebase",
+  "description": "Weather App made with Reactjs, Redux and Firebase",
   "main": "index.jsx",
   "repository": "git@github.com:btomashvili/react-redux-firebase-boilerplate.git",
   "scripts": {
@@ -68,7 +68,7 @@
     "axios": "^0.16.1",
     "bootstrap-social": "^5.0.0",
     "classnames": "^2.2.5",
-    "express": "^4.14.0",
+    "express": "4.15.3",
     "firebase": "^3.0.5",
     "font-awesome": "^4.6.3",
     "history": "^3.0.0",
