@@ -4,6 +4,10 @@
   "description": "Weather App made with Reactjs, Redux and Firebase",
   "main": "index.jsx",
   "repository": "git@github.com:btomashvili/react-redux-firebase-boilerplate.git",
+  "engines": {
+    "node": "6.10.1",
+    "npm": "4.5.0"
+  },
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack-dev.config.js --watch --colors",
     "build": "rm -rf public && ./node_modules/.bin/webpack --config ./webpack/webpack-prod.config.js --colors",
@@ -21,9 +25,6 @@
       "url": "https://www.yasirhossain.com/"
     }
   ],
-  "engines": {
-    "node": "6.10.1"
-  },
   "license": "MIT",
   "keywords": [
     "ReactJS",
@@ -74,7 +75,7 @@
     "history": "^3.0.0",
     "lodash": "^3.10.1",
     "moment": "^2.18.1",
-    "react": "^15.4.2",
+    "react": "^15.5.4",
     "react-addons-css-transition-group": "^15.5.2",
     "react-dom": "^15.5.0",
     "react-motion": "^0.5.0",
