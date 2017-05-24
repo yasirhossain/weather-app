@@ -2,12 +2,12 @@ module.exports = {
 
     FIREBASE_CONFIG: {
 
-        apiKey: 'AIzaSyD4xIfrFJZqWzx592QwJMl1IVxensB5lc0',
-        authDomain: 'portfolio-b4cad.firebaseapp.com',
-        databaseURL: 'https://portfolio-b4cad.firebaseio.com',
-        projectId: "portfolio-b4cad",
-        storageBucket: "portfolio-b4cad.appspot.com",
-        messagingSenderId: "796852352878",
+        apiKey: "AIzaSyA8loh_uPWI6s9Ai9mwY5HXqCrdKwV2QQ8",
+        authDomain: "weather-app-1c432.firebaseapp.com",
+        databaseURL: "https://weather-app-1c432.firebaseio.com",
+        projectId: "weather-app-1c432",
+        storageBucket: "weather-app-1c432.appspot.com",
+        messagingSenderId: "872047501793",
 
     },
 };

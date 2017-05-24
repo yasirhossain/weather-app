@@ -20,6 +20,9 @@
       "url": "https://www.yasirhossain.com/"
     }
   ],
+  "engines": {
+    "node": "6.10.1"
+  },
   "license": "MIT",
   "keywords": [
     "ReactJS",
