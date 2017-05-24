@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 import momentjs from 'moment';
 
@@ -10,6 +11,7 @@ class Weather extends Component {
     this.API_KEY = `46ddd9c3c6a545d0d62e60754768e38d`;
     this.onCityEnter = this.onCityEnter.bind(this);
     this.state = {
+      loading: false,
       metric: 'imperial',
       lat: 0,
       lon: 0,
@@ -46,6 +48,10 @@ class Weather extends Component {
   }
 
   getLocation() {
+    this.setState({
+      loading: true
+    });
+
     if (navigator) {
       const geolocation = navigator.geolocation;
 
@@ -57,11 +63,17 @@ class Weather extends Component {
           });
           this.getWeatherForecast(this.state.lat, this.state.lon, this.state.metric);
         }, () => {
+          this.setState({
+            loading: false
+          });
           reject (new Error('Permission denied'));
         });
       });
     } else {
       console.log(`sorry but this didnt work`);
+      this.setState({
+        loading: false
+      });
     }
   }
 
@@ -131,6 +143,10 @@ class Weather extends Component {
   getWeatherForecast(lat, long, metric) {
     const WEATHER_FORECAST_URL = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${long}&appid=${this.API_KEY}&units=${metric}&cnt=5`;
 
+    this.setState({
+      loading: true
+    });
+
     axios.get(WEATHER_FORECAST_URL).then(
       (res) => {
         if (res.data.cod !== '200' && res.data.message){
@@ -142,12 +158,16 @@ class Weather extends Component {
           });
           this.setState({
             weatherData: res.data,
-            forecastData: forecastData
+            forecastData: forecastData,
+            loading: false
           });
           return res.data;
         }
       },
       (res) => {
+        this.setState({
+          loading: false
+        });
         throw new Error(res.data.message);
       }
     );
@@ -197,6 +217,12 @@ class Weather extends Component {
     )
   }
 
+  renderLoading() {
+    if (this.state.loading) {
+      return <i className="fa fa-spinner"></i>
+    }
+  }
+
   renderWeatherForecast() {
     const widthStyle = {
       width: `${100 / this.state.forecastData.length}%`
@@ -206,11 +232,11 @@ class Weather extends Component {
       return (
         <div className="forecast clearfix">
           <div className="header">
-            <h1><i className="fa fa-map-marker"></i> { this.state.weatherData.city.name }</h1>
+            <h1><i className="fa fa-map-marker"></i> { this.state.weatherData.city.name } { this.renderLoading() }</h1>
             { this.renderMetricToggle() }
           </div>
           <h2><i className="fa fa-cloud"></i> 5 Day Forecast</h2>
-          <ul className="day list-unstyled">
+          <div className="day">
             {
               this.state.forecastData.map(function(day) {
                 let dayString = momentjs.unix(day.dt).format('ddd');
@@ -219,25 +245,32 @@ class Weather extends Component {
                   background: `linear-gradient(#43cff3, #e56363 ${100 - day.temp.day}%)`
                 };
                 return (
-                  <li key={day.dt} className="card" style={widthStyle}>
-                    <div className="container" style={dayCardStyle}>
-                      <label className="title">{ dayString }</label>
-                      <label className="number">{ Math.round(day.temp.day) }</label>
-                      <label>{ day.weather[0].main }</label>
-                      <label>
-                        <i className="fa fa-chevron-up"></i> { Math.round(day.temp.max) }
-                      </label>
-                      <label>
-                        <i className="fa fa-chevron-down"></i> { Math.round(day.temp.min) }
-                      </label>
+                  <CSSTransitionGroup
+                    transitionName="weather-card"
+                    transitionEnterTimeout={0}
+                    transitionLeaveTimeout={0}>
+                    <div key={day.dt} className="card" style={widthStyle}>
+                      <div className="container" style={dayCardStyle}>
+                        <label className="title">{ dayString }</label>
+                        <label className="number">{ Math.round(day.temp.day) }</label>
+                        <label>{ day.weather[0].main }</label>
+                        <label>
+                          <i className="fa fa-chevron-up"></i> { Math.round(day.temp.max) }
+                        </label>
+                        <label>
+                          <i className="fa fa-chevron-down"></i> { Math.round(day.temp.min) }
+                        </label>
+                      </div>
                     </div>
-                  </li>
+                 </CSSTransitionGroup>
                 )
               })
             }
-          </ul>
+          </div>
         </div>
       )
+    } else {
+      { this.renderLoading() }
     }
   }
 

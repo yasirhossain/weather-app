@@ -9,6 +9,8 @@ Switch between Farenheight and Celcius
 Forecast gives a gradient based on how hot / cold the temperature is.
 Font Awesome icon library.
 Responsive for Desktop / iPad Portrait / Mobile
+Loading indicator when pulling new city data.
+Animations of new weather cards loading in.
 
 # Thought Process
 This is intended to be an MVP. The goal was to make a simple, polished solution that pulls data in concise cards for a user seeking a weather forecast of a given city. I intended to ease the user into the experience further by adding geolocation on start, to make it more frictionless.
@@ -17,16 +19,13 @@ This is intended to be an MVP. The goal was to make a simple, polished solution 
 For the sake of time, I had to forego some additional UI polish and erro-handling. Would be the next steps post-MVP. Using Open Weather API also doesn't allow for https, which I solve by using Dark Sky API instead.
 
 # Next Steps
-1. Error-handling
-2. Loading animations and cues
+1. More Error-handling
 2. Add ability to add / compare cities
 3. Icons per weather condition
-4. Additional animations (for ex. cards sliding into view)
-5. Current forecast more detailed
-6. More info button on each weather card to give wind, precipitation etc.
-7. Strip out additional code
-8. Break out React components further
-9. Additional support beyond modern browsers
+4. Current forecast more detailed
+5. More info button on each weather card to give wind, precipitation etc.
+6. Break out React components further
+7. Additional support beyond modern browsers
 
 # Setup
 1. Clone project
