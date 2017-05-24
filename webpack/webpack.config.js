@@ -14,7 +14,7 @@ module.exports = (options) => {
       Path.join(__dirname, '../src/app/index'),
     ],
     output: {
-      path: Path.join(__dirname, '../dist'),
+      path: Path.join(__dirname, '../build'),
       filename: `/scripts/${options.jsFileName}`,
     },
     resolve: {
