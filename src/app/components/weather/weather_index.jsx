@@ -165,7 +165,7 @@ class Weather extends Component {
   renderCityForm() {
     return(
       <div className="city">
-        <h2><i className="fa fa-globe"></i> Enter a City</h2>
+        <h2><i className="fa fa-globe"></i> City</h2>
         <form id="frmChat" role="form" onSubmit={this.onCityEnter}>
           <input type="city" className="form-control" id="txtCity" ref="city" placeholder="Enter a city..." name="city" />
         </form>
