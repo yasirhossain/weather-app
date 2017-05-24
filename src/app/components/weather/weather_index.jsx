@@ -167,7 +167,7 @@ class Weather extends Component {
       <div className="city">
         <h2><i className="fa fa-globe"></i> City</h2>
         <form id="frmChat" role="form" onSubmit={this.onCityEnter}>
-          <input type="city" className="form-control" id="txtCity" ref="city" placeholder="Enter a city..." name="city" />
+          <input type="city" className="form-control" id="txtCity" ref="city" placeholder="Enter a city to see a 5 day forecast..." name="city" />
         </form>
       </div>
     )
