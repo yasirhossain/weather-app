@@ -16,7 +16,7 @@ This is intended to be an MVP. The goal was to make a simple, polished solution 
 # Trade-offs
 For the sake of time, I had to forego some additional UI polish and erro-handling. Would be the next steps post-MVP. Using Open Weather API also doesn't allow for https, which I solve by using Dark Sky API instead.
 
-# Next Steps aka TODO
+# Next Steps
 1. Error-handling
 2. Loading animations and cues
 2. Add ability to add / compare cities
@@ -26,6 +26,7 @@ For the sake of time, I had to forego some additional UI polish and erro-handlin
 6. More info button on each weather card to give wind, precipitation etc.
 7. Strip out additional code
 8. Break out React components further
+9. Additional support beyond modern browsers
 
 # Setup
 1. Clone project
