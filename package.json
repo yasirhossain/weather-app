@@ -11,7 +11,8 @@
     "test": "./node_modules/.bin/eslint src && ./node_modules/.bin/mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
     "lint": "./node_modules/.bin/eslint src",
-    "postinstall": "npm install express"
+    "postinstall": "npm install express",
+    "heroku-postbuild": "rm -rf public && npm run build"
   },
   "author": "Yasir Hossain",
   "contributors": [
