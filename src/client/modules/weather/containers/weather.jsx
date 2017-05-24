@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Button } from 'reactstrap';
 
 import momentjs from 'moment';
-import Moment from 'react-moment';
 
 import axios from 'axios';
 
