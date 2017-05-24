@@ -5,6 +5,8 @@ import momentjs from 'moment';
 
 import axios from 'axios';
 
+import CurrentWeather from './current_weather';
+
 class Weather extends Component {
   constructor(props) {
     super(props);
@@ -279,6 +281,7 @@ class Weather extends Component {
       <div className="weather text-center mt-4 mb-4 container">
         { this.renderCityForm() }
         { this.renderWeatherForecast() }
+        <CurrentWeather lat={this.state.lat} lon={this.state.lon} loading={this.state.loading} api={this.API_KEY} metric={this.state.metric} />
       </div>
     );
   }
