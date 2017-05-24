@@ -1,0 +1,193 @@
+@mixin transition($property, $time, $effect: ease-in-out) {
+  /* Safari */
+  -webkit-transition: $property $time;
+  -webkit-transition-timing-function: $effect;
+
+  transition: $property $time;
+  transition-timing-function: $effect;
+}
+
+html, body, #root, #root > div {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-size: 16px;
+  color: #fff;
+  font-family: courier, serif;
+
+  h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  label {
+    font-weight: 300;
+  }
+
+  .call-out {
+    color: #FF5252;
+  }
+  .badge {
+    background: #00BCD4;
+  }
+
+  .container-fluid {
+    padding-bottom: 40px;
+  }
+
+  a {
+    color: #00bcd4;
+    cursor: pointer;
+    &:hover, &:focus, &:active {
+      text-decoration: none;
+    }
+  }
+
+  input.form-control {
+    @include transition(all, .2s, ease-in-out);
+    border: 0 none;
+    box-shadow: none;
+    border-bottom: 1px solid #3a3a3a;
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
+    &:focus {
+      border-color: #00BCD4;
+      outline: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+
+  .box-shadow {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.18);
+  }
+
+  .action-button {
+    @include transition(all, .4s, ease-in-out);
+    color: #fff;
+    border: 3px solid #000;
+    background-color: #000;
+
+    border-radius: 45px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 45px;
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 0 15px;
+    margin-right: 15px;
+    display: inline-block;
+    &:last-child {
+      margin-right: 0px;
+    }
+    &:hover {
+      background-color: transparent;
+      border-color: #fff;
+      color: #fff;
+    }
+  }
+
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    font-family: 'Roboto', sans-serif;
+    background: transparent;
+    font-weight: 500;
+    margin: 0;
+    border-radius: 0;
+    border: 0;
+    .navbar-nav {
+      > li {
+        float: left;
+        > a {
+          color: #fff;
+          text-shadow: initial;
+          text-transform: uppercase;
+          font-weight: 700;
+          &:hover, &:focus, &:active {
+            background-color: transparent;
+          }
+          &.active {
+            color: #00BCD4;
+          }
+          &:hover {
+            color: #00BCD4;
+          }
+        }
+      }
+    }
+  }
+
+  .container {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    .section {
+      @include transition(all, .3s, ease-in-out);
+      position: absolute;
+
+      background-color: #1A1A1A;
+      height: 100%;
+      width: 100%;
+      padding: 0 5%;
+      padding-top: 100px;
+      overflow: auto;
+
+      &.state-transition-enter {
+        opacity: 0;
+      }
+      &.state-transition-enter.state-transition-enter-active {
+        opacity: 1;
+      }
+      &.state-transition-leave {
+        opacity: 1;
+      }
+      &.state-transition-leave.state-transition-leave-active {
+        opacity: 0;
+      }
+    }
+  }
+
+  .component-container {
+    background: #232323;
+    padding: 2%;
+    margin: 2% auto;
+  }
+
+  .contact {
+    .card {
+      margin-bottom: 10px;
+      label {
+        width: 100%;
+        margin-bottom: 0;
+      }
+      a {
+        width: 100%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    .container .section {
+      padding-top: 50px;
+    }
+  }
+}
